@@ -25,6 +25,15 @@ network={
 
 After editing `wpa_supplicant.conf` you'll need to restart the networking service with `sudo systemctl restart networking.service`. Alternatively, run `sudo ifdown wlan0` and then `sudo ifup wlan0`
 
+### Repeatig Internet from Windows Laptop
+This setup uses a Windows laptop with two network adaptors: one USB TP Link Archer T4U Plus and the internal network card.
+
+1. Using Windows computer, use the USB network adaptor (called WiFi to for me in the Taskbar), to connect to a WiFi network that has internet.
+2. Enable Mobile Hotspot in Windows in the taskbar settings. You can edit the SSID and Password by right clicking.
+3. Navigate to Control Panel -> Network and Sharing Center -> Click on the Wifi-2 Connection -> Properties -> Sharing Tab -> Enable "Allow other network users to connect through this computer's Internet connection -> Select the connection with internet (Local Area Connection *10 for me)
+4. Connect Raspberry Pi to the Mobile Hotspot WiFi network by editing `wpa_supplicant.conf` as mentioned above.
+5. Test connection by pinging a popular site: `ping google.com`
+
 ## Docker
 
 _TODO: Add docker install instructions_
@@ -58,6 +67,9 @@ Now `cat` your public key and copy/paste it into GitHub under Settings -> SSH an
 ```
 $ cat /home/pi/.ssh/id_rsa.pub
 ```
+
+## Installing drivers for Adafruit PiTFT display
+Followed instructions here: https://learn.adafruit.com/adafruit-pitft-28-inch-resistive-touchscreen-display-raspberry-pi/easy-install-2
 
 ## Java install
 ```
